@@ -1,6 +1,6 @@
 local library = {}
 
-function library:CreateMain(guititle)
+function library:CreateMain(guititle, credits)
     local GCLib = Instance.new("ScreenGui")
     local TopMain = Instance.new("ImageLabel")
     local Container = Instance.new("ImageLabel")
@@ -319,18 +319,24 @@ function library:CreateMain(guititle)
     InfoTitle_2.TextWrapped = true
     InfoTitle_2.ZIndex = 3
 
+    if credits then
+        credit = ", Scripts made by ".. credits.. " !"
+    else
+        credit = " !"
+    end
     InfoTextC.Name = "InfoTextC"
     InfoTextC.Parent = Info_2
     InfoTextC.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     InfoTextC.BackgroundTransparency = 1.000
     InfoTextC.BorderSizePixel = 0
-    InfoTextC.Position = UDim2.new(0.00836377405, 0, 0.256646186, 0)
-    InfoTextC.Size = UDim2.new(0, 370, 0, 55)
+    InfoTextC.Position = UDim2.new(0, 24, 0.256999999, 0)
+    InfoTextC.Size = UDim2.new(0, 329, 0, 103)
     InfoTextC.Font = Enum.Font.TitilliumWeb
-    InfoTextC.Text = "GUI and scripts made by: \"Grey Cat#4774\" on discord!"
+    InfoTextC.Text = "UI Library made by: \"Grey Cat#4774\"".. credit
     InfoTextC.TextColor3 = Color3.fromRGB(211, 211, 211)
     InfoTextC.TextSize = 25.000
     InfoTextC.TextWrapped = true
+    InfoTextC.TextYAlignment = Enum.TextYAlignment.Top
     InfoTextC.ZIndex = 3
 
     InfoTextT.Name = "InfoTextT"
@@ -338,11 +344,11 @@ function library:CreateMain(guititle)
     InfoTextT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     InfoTextT.BackgroundTransparency = 1.000
     InfoTextT.BorderSizePixel = 0
-    InfoTextT.Position = UDim2.new(0.00836377405, 0, 0.498143643, 0)
-    InfoTextT.Size = UDim2.new(0, 364, 0, 37)
+    InfoTextT.Position = UDim2.new(0.00800000038, 0, 0.870000005, 0)
+    InfoTextT.Size = UDim2.new(0, 364, 0, 21)
     InfoTextT.Font = Enum.Font.TitilliumWeb
     InfoTextT.Text = "Toggel the GUI with \"k\"."
-    InfoTextT.TextColor3 = Color3.fromRGB(211, 211, 211)
+    InfoTextT.TextColor3 = Color3.fromRGB(80, 80, 80)
     InfoTextT.TextSize = 25.000
     InfoTextT.TextWrapped = true
     InfoTextT.ZIndex = 3
