@@ -366,6 +366,7 @@ function library:CreateMain(guititle, credits)
 		local rename = Instance.new("TextButton")
 		local UICorner_2 = Instance.new("UICorner")
 		local rename_2 = Instance.new("ImageLabel")
+		local ArrowCover = Instance.new("Frame")
 		local InfoTitle = Instance.new("TextLabel")
 		local ScrollingFrame_2 = Instance.new("ScrollingFrame")
 		local UIListLayout = Instance.new("UIListLayout")
@@ -400,6 +401,14 @@ function library:CreateMain(guititle, credits)
 		rename_2.SliceCenter = Rect.new(100, 100, 100, 100)
 		rename_2.SliceScale = 0.167
 		rename_2.Visible = false
+
+		ArrowCover.Name = "ArrowCover"
+		ArrowCover.Parent = rename_2
+		ArrowCover.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+		ArrowCover.BorderSizePixel = 0
+		ArrowCover.Position = UDim2.new(0.802139044, 0, 0, 0)
+		ArrowCover.Size = UDim2.new(0, 30, 0, 26)
+		ArrowCover.ZIndex = 20
 
 		InfoTitle.Name = "InfoTitle"
 		InfoTitle.Parent = rename_2
@@ -764,9 +773,9 @@ function library:CreateMain(guititle, credits)
 			Arrow.Position = UDim2.new(0.862999976, 0, 0, 0)
 			Arrow.Rotation = 270.000
 			Arrow.Size = UDim2.new(0, 35, 0, 37)
-			Arrow.ZIndex = 7
+			Arrow.ZIndex = 6
 			Arrow.Image = "rbxassetid://4370337241"
-			Arrow.ImageColor3 = Color3.fromRGB(115, 115, 115)
+			Arrow.ImageColor3 = Color3.fromRGB(85, 85, 85)
 			Arrow.ScaleType = Enum.ScaleType.Fit
 
 			Text_2.Name = "Text"
@@ -933,7 +942,7 @@ function library:CreateMain(guititle, credits)
 				DropdownButton.Size = UDim2.new(0, 200, 0, 50)
 				DropdownButton.ZIndex = 3
 				DropdownButton.AutoButtonColor = false
-				DropdownButton.Font = Enum.Font.SourceSans
+				DropdownButton.Font = Enum.Font.TitilliumWeb
 				DropdownButton.TextColor3 = Color3.fromRGB(83, 83, 83)
 				DropdownButton.TextScaled = true
 				DropdownButton.TextSize = 14.000
