@@ -479,6 +479,33 @@ function library:CreateMain(guititle, credits)
 
 		local ButtonLib = {}
 
+		function ButtonLib:CreateLabel(name)
+			local name = name or "forgor text 💀"
+
+			local LabelTemplate = Instance.new("TextLabel")
+			local UICorner_14 = Instance.new("UICorner")
+			
+			LabelTemplate.Name = "LabelTemplate"
+			LabelTemplate.Parent = ScrollingFrame_2
+			LabelTemplate.Active = true
+			LabelTemplate.AnchorPoint = Vector2.new(0.5, 0.5)
+			LabelTemplate.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+			LabelTemplate.BorderColor3 = Color3.fromRGB(27, 42, 53)
+			LabelTemplate.Position = UDim2.new(0.618748009, 0, 0.785016894, 0)
+			LabelTemplate.Selectable = true
+			LabelTemplate.Size = UDim2.new(0, 300, 0, 25)
+			LabelTemplate.Font = Enum.Font.TitilliumWeb
+			LabelTemplate.LineHeight = 1.130
+			LabelTemplate.TextColor3 = Color3.fromRGB(111, 111, 111)
+			LabelTemplate.TextScaled = true
+			LabelTemplate.TextSize = 14.000
+			LabelTemplate.TextWrapped = true
+			LabelTemplate.Text = name
+			
+			UICorner_14.CornerRadius = UDim.new(0, 12)
+			UICorner_14.Parent = LabelTemplate	
+		end
+
 		function ButtonLib:CreateButton(name, callback)
 			local name = name or "forgor buttonname 💀"
 			local callback = callback or function() end
