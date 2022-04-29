@@ -687,12 +687,15 @@ function library:CreateMain(guititle, credits)
 			local Cover2 = Instance.new("Frame")
 			local Arrow = Instance.new("ImageLabel")
 			local Text_2 = Instance.new("TextLabel")
+			local UIListLayout_2 = Instance.new("UIListLayout")
+			local SearchBar = Instance.new("TextBox")
+			local UICorner_13 = Instance.new("UICorner")
 
 			DropdownTemplate.Name = "DropdownTemplate"
 			DropdownTemplate.Parent = ScrollingFrame_2
 			DropdownTemplate.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 			DropdownTemplate.BorderSizePixel = 0
-			DropdownTemplate.Position = UDim2.new(0.803180933, 0, 0.643578649, 0)
+			DropdownTemplate.Position = UDim2.new(0.677047372, 0, 0.803751826, 0)
 			DropdownTemplate.Size = UDim2.new(0, 300, 0, 39)
 			DropdownTemplate.ZIndex = 6
 			DropdownTemplate.AutoButtonColor = false
@@ -712,7 +715,7 @@ function library:CreateMain(guititle, credits)
 			DropdownUI.Parent = DropdownTemplate
 			DropdownUI.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 			DropdownUI.BorderSizePixel = 0
-			DropdownUI.Position = UDim2.new(0, 0, 0.699999988, 0)
+			DropdownUI.Position = UDim2.new(0, 0, 0.870000005, 0)
 			DropdownUI.Size = UDim2.new(0, 300, 0, 0)
 			DropdownUI.ZIndex = 3
 
@@ -725,12 +728,40 @@ function library:CreateMain(guititle, credits)
 			ScrollingFrame_3.BackgroundTransparency = 1.000
 			ScrollingFrame_3.BorderColor3 = Color3.fromRGB(27, 42, 53)
 			ScrollingFrame_3.BorderSizePixel = 0
-			ScrollingFrame_3.Position = UDim2.new(0.0430000015, 0, 0.109999999, 0)
-			ScrollingFrame_3.Size = UDim2.new(0, 274, 0, 118)
+			ScrollingFrame_3.LayoutOrder = 1
+			ScrollingFrame_3.Position = UDim2.new(0.0430000797, 0, 0.209999993, 0)
+			ScrollingFrame_3.Size = UDim2.new(0, 274, 0, 136)
+			ScrollingFrame_3.Visible = false
 			ScrollingFrame_3.ZIndex = 3
 			ScrollingFrame_3.CanvasSize = UDim2.new(0, 0, 1, 0)
 			ScrollingFrame_3.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
 			ScrollingFrame_3.ScrollBarImageColor3 = Color3.fromRGB(20, 22, 22)
+
+			UIListLayout_2.Parent = DropdownUI
+			UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+			UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+			UIListLayout_2.VerticalAlignment = Enum.VerticalAlignment.Center
+			UIListLayout_2.Padding = UDim.new(0, 4)
+
+			SearchBar.Name = "SearchBar"
+			SearchBar.Parent = DropdownUI
+			SearchBar.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+			SearchBar.BorderSizePixel = 0
+			SearchBar.Position = UDim2.new(0.166666672, 0, 0.0850000009, 0)
+			SearchBar.Size = UDim2.new(0, 275, 0, 30)
+			SearchBar.Visible = false
+			SearchBar.ZIndex = 3
+			SearchBar.Font = Enum.Font.TitilliumWeb
+			SearchBar.PlaceholderColor3 = Color3.fromRGB(50, 50, 50)
+			SearchBar.PlaceholderText = "Search"
+			SearchBar.Text = ""
+			SearchBar.TextColor3 = Color3.fromRGB(83, 83, 83)
+			SearchBar.TextScaled = true
+			SearchBar.TextSize = 14.000
+			SearchBar.TextWrapped = true
+
+			UICorner_13.CornerRadius = UDim.new(0, 7)
+			UICorner_13.Parent = SearchBar
 
 			UIGridLayout_2.Parent = ScrollingFrame_3
 			UIGridLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -753,8 +784,8 @@ function library:CreateMain(guititle, credits)
 			Cover1.Parent = DropdownTemplate
 			Cover1.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 			Cover1.BorderSizePixel = 0
-			Cover1.Position = UDim2.new(0, 0, 0.641025543, 0)
-			Cover1.Size = UDim2.new(0, 14, 0, 14)
+			Cover1.Position = UDim2.new(0, 0, 0.605000019, 0)
+			Cover1.Size = UDim2.new(0, 13, 0, 16)
 			Cover1.Visible = false
 			Cover1.ZIndex = 6
 
@@ -762,8 +793,8 @@ function library:CreateMain(guititle, credits)
 			Cover2.Parent = DropdownTemplate
 			Cover2.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
 			Cover2.BorderSizePixel = 0
-			Cover2.Position = UDim2.new(0.953000009, 0, 0.640999973, 0)
-			Cover2.Size = UDim2.new(0, 14, 0, 14)
+			Cover2.Position = UDim2.new(0.956666708, 0, 0.605000019, 0)
+			Cover2.Size = UDim2.new(0, 13, 0, 16)
 			Cover2.Visible = false
 			Cover2.ZIndex = 6
 
@@ -795,7 +826,35 @@ function library:CreateMain(guititle, credits)
 			Text_2.TextWrapped = true
 			Text_2.TextXAlignment = Enum.TextXAlignment.Left
 
-			local function AZTWF_fake_script() -- DropdownUI.LocalScript 
+			local function ODIRDY_fake_script() -- SearchBar.LocalScript 
+				local script = Instance.new('LocalScript', SearchBar)
+			
+				local bar = script.Parent
+				local buttons = script.Parent.Parent.ScrollingFrame
+				
+				function update()
+					local search = string.lower(bar.Text)
+					for i, v in pairs(buttons:GetChildren()) do
+						if v:IsA("GuiButton") then
+							if bar ~= "" then
+								local button = string.lower(v.Text)
+								if string.find(button, search) then
+									v.Visible = true
+								else
+									v.Visible = false
+								end
+							else
+								v.Visible = true
+							end
+						end
+					end
+				end
+				
+				bar.Changed:Connect(update)
+			end
+			coroutine.wrap(ODIRDY_fake_script)()
+
+			local function PRZPTNW_fake_script() -- DropdownUI.LocalScript 
 				local script = Instance.new('LocalScript', DropdownUI)
 			
 				local DropDownButton = script.Parent.Parent
@@ -804,6 +863,7 @@ function library:CreateMain(guititle, credits)
 				local Corner = script.Parent.Parent.UICorner
 				local Grid = script.Parent.ScrollingFrame.UIGridLayout
 				local ScrollingFrame = script.Parent.ScrollingFrame
+				local SearchBar = script.Parent.SearchBar
 				local Toggle = true
 				local playing = false
 				local TweenService = game:GetService("TweenService")
@@ -834,9 +894,9 @@ function library:CreateMain(guititle, credits)
 				
 							wait(0.2)
 				
-							local tween = TweenService:Create(UI, TweenInfo.new(time), {Size = UDim2.new(0, 300, 0, 138)})
+							local tween = TweenService:Create(UI, TweenInfo.new(time), {Size = UDim2.new(0, 300, 0, 188)})
 							local tween10 = TweenService:Create(Grid, TweenInfo.new(time), {CellSize = UDim2.new(0, 240, 0, 30)})
-							local tween4 = TweenService:Create(Cover, TweenInfo.new(time), {Size = UDim2.new(0, 300, 0, 138)})
+							local tween4 = TweenService:Create(Cover, TweenInfo.new(time), {Size = UDim2.new(0, 300, 0, 195)})
 							local tween14 = TweenService:Create(Icon, TweenInfo.new(time), {Rotation = 90})
 							local tween16 = TweenService:Create(Icon, TweenInfo.new(time), {Position = UDim2.new(0.863, 0, 0, 2)})
 							tween14:Play()
@@ -844,7 +904,7 @@ function library:CreateMain(guititle, credits)
 							tween4:Play()
 							
 							frame.Visible = true
-							local tween12 = TweenService:Create(frame, TweenInfo.new(time), {Size = UDim2.new(0, 300, 0, 121)})
+							local tween12 = TweenService:Create(frame, TweenInfo.new(time), {Size = UDim2.new(0, 300, 0, 188)})
 							tween12:Play()
 							
 							wait(0.1)
@@ -859,6 +919,8 @@ function library:CreateMain(guititle, credits)
 							local tween5 = TweenService:Create(Cover, TweenInfo.new(time), {BackgroundTransparency = 1})
 							tween:Play()
 							tween.Completed:wait()
+							ScrollingFrame.Visible = true
+							SearchBar.Visible = true
 				
 							tween5:Play()
 						else
@@ -868,6 +930,11 @@ function library:CreateMain(guititle, credits)
 							wait(0.4)
 							local tween6 = TweenService:Create(Cover, TweenInfo.new(time), {BackgroundTransparency = 0})
 							tween6:Play()
+							spawn(function()
+								tween6.Completed:Wait()
+								ScrollingFrame.Visible = false
+								SearchBar.Visible = false
+							end)
 							wait(0.1)
 							cover1.Visible = false
 							cover2.Visible = false
@@ -901,7 +968,7 @@ function library:CreateMain(guititle, credits)
 					end
 				end)
 			end
-			coroutine.wrap(AZTWF_fake_script)()
+			coroutine.wrap(PRZPTNW_fake_script)()
 			local function SJYMK_fake_script() -- DropdownTemplate.LocalScript 
 				local script = Instance.new('LocalScript', DropdownTemplate)
 			
