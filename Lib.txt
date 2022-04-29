@@ -501,6 +501,8 @@ function library:CreateMain(guititle, credits)
 			LabelTemplate.TextSize = 14.000
 			LabelTemplate.TextWrapped = true
 			LabelTemplate.Text = name
+			LabelTemplate.LayoutOrder = GlobalLayoutOrder + 2
+			GlobalLayoutOrder = GlobalLayoutOrder + 2
 			
 			UICorner_14.CornerRadius = UDim.new(0, 12)
 			UICorner_14.Parent = LabelTemplate	
