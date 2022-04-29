@@ -101,6 +101,7 @@ function library:CreateMain(guititle, credits)
 	ScrollingFrame.CanvasSize = UDim2.new(0, 0, 1, 0)
 	ScrollingFrame.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
 	ScrollingFrame.ScrollBarImageColor3 = Color3.fromRGB(40, 40, 40)
+	ScrollingFrame.AutomaticCanvasSize = "Y"
 
 	UIGridLayout.Parent = ScrollingFrame
 	UIGridLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
