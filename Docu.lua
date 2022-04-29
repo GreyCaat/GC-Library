@@ -10,6 +10,10 @@ local tab = main:CreateTab("Tab Name")
 --creating a tab
 
 
+local label = tab:CreateLabel("Text here")
+--creating text
+
+
 local button = tab:CreateButton("Button Name", function()
 	--executes this when clicking on the button
 	print("Button")
@@ -41,10 +45,10 @@ end)
 
 
 local slider = tab:CreateSlider("Walkspeed", 16, 400, function(arg)
-	--"Walkspeed" = name of the Slider
-	--16......... = minvalue
-	--400........ = maxvalue
-	--arg........ = current value of the slider
+	--"Walkspeed".= name of the Slider
+	--16..........= minvalue
+	--400.........= maxvalue
+	--arg.........= current value of the slider
 	--this will execute everytime arg changes:
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = arg
 end)
@@ -52,10 +56,10 @@ end)
 
 
 local slider = tab:CreateSlider("JumpPower", 50, 400, function(arg)
-	--"JumpPower" = name of the Slider
-	--50......... = minvalue
-	--400........ = maxvalue
-	--arg........ = current value of the slider
+	--"JumpPower".= name of the Slider
+	--50..........= minvalue
+	--400.........= maxvalue
+	--arg.........= current value of the slider
 	--this will execute everytime arg changes:
 	game.Players.LocalPlayer.Character.Humanoid.JumpPower = arg
 end)
@@ -67,7 +71,7 @@ end)
 This library should be used for simple stuff only as there is no config support,
 increasement option for sliders, no keybinding options whatsoever, no color picker,
 no notification system and many other things that may be useful for bigger projects.
-If you want the features above I suggest you to check out shlexware UI Library called "Orion".
+If you want the features above I will suggest checking out "Orion".
 
 I simply made this library by a tutorial and wanted to share it for anyone who may find it useful
 --]]
