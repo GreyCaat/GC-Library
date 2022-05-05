@@ -20,6 +20,8 @@ local button = tab:CreateButton("Button Name", function()
 end)
 --creating a button
 
+local line = tab:CreateLine()
+--creating a line
 
 local dropdown = tab:CreateDropdown("Dropdown Name")
 --creating a dropdown menu
