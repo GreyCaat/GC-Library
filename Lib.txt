@@ -22,15 +22,19 @@ function library:CreateMain(guititle, credits)
 	local TextButton = Instance.new("TextButton")
 	local DropShadow = Instance.new("ImageLabel")
 	getgenv().runnin = false
+	local check = false
 
 	if syn then
+		check = true
 		if isfile("Cat-Lib.txt") == false then
 			writefile("Cat-Lib.txt", "")
 			_G.CatLibKey = "K"
 		elseif isfile("Cat-Lib.txt") == true then
 			loadfile("Cat-Lib.txt")()
 		end
-	else
+	end
+
+	if not check then
 		_G.CatLibKey = "K"
 	end
 
